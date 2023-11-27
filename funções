@@ -1,0 +1,59 @@
+#include <iostream>
+#include <cmath>
+
+// Função para calcular o delta
+double calcularDelta(double a, double b, double c) {
+    return b * b - 4 * a * c;
+}
+
+// Função para calcular a primeira raiz (x1)
+double calcularRaiz1(double a, double b, double delta) {
+    return (-b + sqrt(delta)) / (2 * a);
+}
+
+// Função para calcular a segunda raiz (x2)
+double calcularRaiz2(double a, double b, double delta) {
+    return (-b - sqrt(delta)) / (2 * a);
+}
+
+// Função para calcular o vértice X (vx)
+double calcularVX(double b, double a) {
+    return -b / (2 * a);
+}
+
+// Função para calcular o vértice Y (vy)
+double calcularVY(double delta, double a) {
+    return -delta / (4 * a);
+}
+
+int main() {
+    double a, b, c;
+    double delta, x1, x2, vx, vy;
+
+    // Leitura dos coeficientes
+    std::cout << "Digite o valor de A: ";
+    std::cin >> a;
+
+    std::cout << "Digite o valor de B: ";
+    std::cin >> b;
+
+    std::cout << "Digite o valor de C: ";
+    std::cin >> c;
+
+    // Cálculos
+    delta = calcularDelta(a, b, c);
+    x1 = calcularRaiz1(a, b, delta);
+    x2 = calcularRaiz2(a, b, delta);
+    vx = calcularVX(b, a);
+    vy = calcularVY(delta, a);
+
+    // Exibição dos resultados
+    std::cout << "\nResultados:\n";
+    std::cout << "Delta: " << delta << std::endl;
+    std::cout << "Raiz 1 (x1): " << x1 << std::endl;
+    std::cout << "Raiz 2 (x2): " << x2 << std::endl;
+    std::cout << "Vértice X (vx): " << vx << std::endl;
+    std::cout << "Vértice Y (vy): " << vy << std::endl;
+
+    return 0;
+}
